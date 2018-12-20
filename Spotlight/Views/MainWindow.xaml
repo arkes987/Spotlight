@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:Behaviors="clr-namespace:Spotlight.Behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="700" WindowStyle="None" ShowInTaskbar="{Binding ShowInTaskbar, UpdateSourceTrigger=PropertyChanged}" AllowsTransparency="True" Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" Height="450" Width="700" WindowStyle="None" ShowInTaskbar="{Binding ShowInTaskbar, UpdateSourceTrigger=PropertyChanged}" AllowsTransparency="True" Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen">
 
-    <Grid Visibility="{Binding IsVisible, UpdateSourceTrigger=PropertyChanged}">
+    <Grid  Visibility="{Binding IsVisible, UpdateSourceTrigger=PropertyChanged}">
         <StackPanel Orientation="Vertical">
-            <TextBox BorderThickness="1, 1, 1, 0" Name="TextBox1" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}" FontSize="25" Width="600" Height="40" Margin="0, 25, 0, 0" VerticalAlignment="Top">
+            <TextBox Background="{DynamicResource MaterialDesignPaper}" BorderBrush="#673ab7" BorderThickness="1, 1, 1, 0" Foreground="White" Name="TextBox1" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}" FontSize="26" Width="600" Height="40" Margin="0, 25, 0, 0" VerticalAlignment="Top">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="7, 7, 1, 1"/>
@@ -27,7 +28,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </TextBox>
-            <Grid Background="White" Width="600">
+            <Grid Background="#303030" Width="600" >
                 <ListBox ItemsSource="{Binding Files, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedFile, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SelectedFileIndex, UpdateSourceTrigger=PropertyChanged}" MaxHeight="310">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -42,7 +43,7 @@
                     </i:Interaction.Behaviors>
                 </ListBox>
             </Grid>
-            <StatusBar Background="White" Width="600">
+            <StatusBar Visibility="Hidden" Opacity="1" Background="White" Width="600">
                 <StatusBarItem Background="White">
                     <TextBlock FontFamily="Consolas">
                         <Run Text="Found "/>
