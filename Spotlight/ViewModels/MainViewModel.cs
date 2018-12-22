@@ -3,7 +3,6 @@ using Spotlight.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Spotlight.ViewModels
@@ -122,7 +121,6 @@ namespace Spotlight.ViewModels
             {
                 Process.Start(SelectedFile.Path);
                 SearchInput = string.Empty;
-                IsVisible = Visibility.Hidden;
             }
 
         }

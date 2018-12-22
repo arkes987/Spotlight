@@ -96,6 +96,7 @@
     <Compile Include="Libs\RelayCommand.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\KeyboardHook.cs" />
+    <Compile Include="Models\Logger.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

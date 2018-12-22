@@ -26,27 +26,34 @@ namespace Spotlight.Models
         {
             var temp = new List<Item>();
 
-            if (string.IsNullOrEmpty(searchPhase)) return temp;
-
-            foreach (var path in TrackingPathes)
+            try
             {
-                foreach (var item in System.IO.Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories))
-                {
-                    var fileName = Path.GetFileName(item);
+                if (string.IsNullOrEmpty(searchPhase)) return temp;
 
-                    if (fileName.ToLower().StartsWith(searchPhase.ToLower()))
+                foreach (var path in TrackingPathes)
+                {
+                    foreach (var item in System.IO.Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories))
                     {
-                        temp.Add(new Item()
+                        var fileName = Path.GetFileName(item);
+
+                        if (fileName.ToLower().StartsWith(searchPhase.ToLower()))
                         {
-                            Name = fileName,
-                            Priority = 0,
-                            Path = Path.GetFullPath(item),
-                            Icon = Imaging.CreateBitmapSourceFromHBitmap(
-Icon.ExtractAssociatedIcon(item).ToBitmap().GetHbitmap(), IntPtr.Zero, Int32Rect.Empty,
-BitmapSizeOptions.FromEmptyOptions())
-                        });
+                            temp.Add(new Item()
+                            {
+                                Name = fileName,
+                                Priority = 0,
+                                Path = Path.GetFullPath(item),
+                                Icon = Imaging.CreateBitmapSourceFromHBitmap(
+    Icon.ExtractAssociatedIcon(item).ToBitmap().GetHbitmap(), IntPtr.Zero, Int32Rect.Empty,
+    BitmapSizeOptions.FromEmptyOptions())
+                            });
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(ex);
             }
             return temp;
         }
