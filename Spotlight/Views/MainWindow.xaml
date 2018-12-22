@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" Height="450" Width="700" WindowStyle="None" ShowInTaskbar="{Binding ShowInTaskbar, UpdateSourceTrigger=PropertyChanged}" AllowsTransparency="True" Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen">
 
-    <Grid  Visibility="{Binding IsVisible, UpdateSourceTrigger=PropertyChanged}">
+    <Grid>
         <StackPanel Orientation="Vertical">
             <TextBox Background="{DynamicResource MaterialDesignPaper}" BorderBrush="#673ab7" BorderThickness="1, 1, 1, 0" Foreground="White" Name="TextBox1" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}" FontSize="26" Width="600" Height="40" Margin="0, 25, 0, 0" VerticalAlignment="Top">
                 <TextBox.Resources>

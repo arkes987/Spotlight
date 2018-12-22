@@ -30,20 +30,6 @@ namespace Spotlight.ViewModels
         }
 
 
-        private Visibility _isVisible = Visibility.Hidden;
-        public Visibility IsVisible
-        {
-            get => _isVisible;
-            set
-            {
-                if (_isVisible == value) return;
-                _isVisible = value;
-                ShowInTaskbar = _isVisible == Visibility.Visible ? true : false;
-                OnPropertyChanged(() => IsVisible);
-            }
-        }
-
-
         private List<Item> _files = new List<Item>();
 
         private int _filesCount = 0;

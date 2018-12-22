@@ -44,18 +44,18 @@ namespace Spotlight
         {
             if (e.KeyboardData.VirtualCode == 178)
             {
+                MainView.Show();
                 Process currentProcess = Process.GetCurrentProcess();
                 IntPtr hWnd = currentProcess.MainWindowHandle;
 
                 if (hWnd != IntPtr.Zero)
                     SetForegroundWindow(hWnd);
 
-                MainViewModel.IsVisible = Visibility.Visible;
                 MainView.TextBox1.Focus();
             }
             else if (e.KeyboardData.VirtualCode == 27)
             {
-                MainViewModel.IsVisible = Visibility.Hidden;
+                MainView.Hide();
                 MainViewModel.SearchInput = string.Empty;
             }
 
