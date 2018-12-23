@@ -7,7 +7,6 @@ namespace Spotlight
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModels.MainViewModel();
         }
     }
 }

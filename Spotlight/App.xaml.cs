@@ -22,8 +22,6 @@ namespace Spotlight
             base.OnStartup(e);
             MainView = new MainWindow();
             MainViewModel = MainView.DataContext as MainViewModel;
-            MainView.Show();
-            MainView.TextBox1.Focus();
         }
 
         public GlobalKeyboardHook _globalKeyboardHook;
@@ -55,8 +53,8 @@ namespace Spotlight
             }
             else if (e.KeyboardData.VirtualCode == 27)
             {
-                MainView.Hide();
                 MainViewModel.SearchInput = string.Empty;
+                MainView.Hide();
             }
 
         }

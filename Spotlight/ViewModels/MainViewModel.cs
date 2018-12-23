@@ -121,6 +121,7 @@ namespace Spotlight.ViewModels
             {
                 Process.Start(SelectedFile.Path);
                 SearchInput = string.Empty;
+                System.Windows.Application.Current.MainWindow.Hide();
             }
 
         }
